@@ -15,7 +15,7 @@ export default async function Home() {
         <div className="home_page pages">
             <aside className="left">
                 {pages.map((p) => (
-                    <div className="page_section">
+                    <div className="page_section" key={p.id}>
                         <p className="eyebrow">{p.title}</p>
                     </div>
                 ))}

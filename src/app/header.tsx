@@ -1,6 +1,6 @@
-import Link from "next/link"
-import LogoImage from "../app/NineLogo.png"
-
+import Link from "next/link";
+import LogoImage from "../app/NineLogo.png";
+import ThemeToggleButton from "./ThemeToggleButton";
 
 export default function Header({}) {
     return (
@@ -10,6 +10,11 @@ export default function Header({}) {
                 <p className="">Caboose Help Center</p>
             </Link>
 
+            <div className="center"></div>
+
+            <div className="right">
+                <ThemeToggleButton />
+            </div>
         </div>
     )
 }

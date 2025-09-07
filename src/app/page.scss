@@ -35,6 +35,12 @@
             .icon {
                 font-size: 42px;
             }
+            .desc {
+                overflow: hidden;
+                display: -webkit-box; 
+                -webkit-line-clamp: 3; 
+                -webkit-box-orient: vertical;
+            }
         }
     }
 }
@@ -51,6 +57,8 @@
     .body_content {
         flex: 1 1 80%;
         padding: 60px 0;
+
+        min-height: calc(100dvh - 84px);
     }
 }
 
@@ -66,4 +74,8 @@ aside.left {
         font-weight: 500;
         text-transform: uppercase;
     }
+}
+
+aside.right {
+    border-left: 2px solid #1e1e1e;
 }
