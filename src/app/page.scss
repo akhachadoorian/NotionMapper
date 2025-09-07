@@ -1,17 +1,4 @@
 .home_page {
-    .banner {
-        background: var(--accent);
-        height: 350px;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        h1 {            
-            color: white;
-        }
-    }
-
     .collection_btns {
         padding: 60px;
 
@@ -20,26 +7,63 @@
         gap: 30px;
 
         .collection_btn {
-            background-color: white;
+            background-color: rgba(0, 0, 0, 0.2);
             padding: 24px;
             border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, .1), 0 4px 6px -2px rgba(0, 0, 0, .05);
+            // text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             transition: all ease-in-out 300ms;
 
             flex: 1 1 calc(50% - 30px);
 
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
+            .collection_btn-inner {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+            }
 
             &:hover {
                 transform: translate(0, -10px);
+            }
+
+            .header_text {
+                display: flex;
+                align-items: center;
+                gap: 10px;
             }
 
             .icon {
                 font-size: 42px;
             }
         }
+    }
+}
+
+.pages {
+    padding: 0 60px;
+    display: flex;
+
+    aside {
+        padding: 60px 0;
+        flex: 1 1 20%;
+    }
+
+    .body_content {
+        flex: 1 1 80%;
+        padding: 60px 0;
+    }
+}
+
+aside.left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    border-right: 2px solid #1e1e1e;
+
+    .eyebrow {
+        font-size: 14px;
+        font-weight: 500;
+        text-transform: uppercase;
     }
 }
