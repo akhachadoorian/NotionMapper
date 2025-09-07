@@ -1,4 +1,4 @@
-import { Client, isFullPage } from "@notionhq/client";
+import { Client, isFullBlock, isFullPage } from "@notionhq/client";
 
 const notion = new Client({ auth: process.env.NOTION_TOKEN });
 
@@ -79,14 +79,26 @@ export async function getNotionDatabase() {
 }
 
 // Get each Database page from Notion
-export async function getDatabasePageBlocks(page_id: string) {
+export async function getSubDatabases(page_id: string) {
     console.log("page_id", page_id)
 
     const res = await notion.blocks.children.list({
-        block_id: page_id
+        block_id: page_id,
     })
 
-    console.log(JSON.stringify(res.results, null));
+    const sub_databases = res.results.filter(isFullBlock).map((sd) => {
+        if (sd && sd.type === "child_database") {
+            const title = sd.child_database.title;
+
+            return {id: sd.id, title: title}
+        }
+    });
+
+    console.log("sub_databases",sub_databases);
+    return sub_databases;
+
+    // console.log(JSON.stringify(res.results, null));
 }
 
-// Get each block from each Database Page in Notion
+// Get the databases from the page
+// export async function get 

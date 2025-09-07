@@ -1,5 +1,5 @@
 // src/library/notion-runner.ts
-import { getDatabasePageBlocks, getNotionDatabase } from "./notion";
+import { getNotionDatabase, getSubDatabases } from "./notion";
 
 (async () => {
   const pages = await getNotionDatabase();
@@ -7,7 +7,7 @@ import { getDatabasePageBlocks, getNotionDatabase } from "./notion";
   if (!pages.length) return;
   console.log("first:", pages[0]);
     const first  = pages[0];
-  const p1 = getDatabasePageBlocks(first.id);
+  const p1 = getSubDatabases(first.id);
 
 })().catch(err => {
   console.error(err);

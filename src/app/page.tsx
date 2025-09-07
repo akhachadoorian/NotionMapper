@@ -5,11 +5,18 @@ import "./page.scss";
 
 export const revalidate = 300;
 
+type SubDb = { id: string; title: string };
+
 export default async function Home() {
     const pages = await getNotionDatabase();
-    if (pages) {
-        // const db_page = await getDatabasePage(pages[0].id);
-    }
+    // const subPagesById: Record<string, SubDb[]> = Object.fromEntries(
+    //     await Promise.all(
+    //         pages.map(async (p) => {
+    //             const subs = (await getSubDatabases(p.id)) ?? [];
+    //             return [p.id, subs] as const;
+    //         })
+    //     )
+    // );
 
     return (
         <div className="home_page pages">
@@ -17,6 +24,9 @@ export default async function Home() {
                 {pages.map((p) => (
                     <div className="page_section" key={p.id}>
                         <p className="eyebrow">{p.title}</p>
+                        {/* {subPagesById[p.id].map((sp) => {
+                            <p>{sp.title}</p>;
+                        })} */}
                     </div>
                 ))}
             </aside>
